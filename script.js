@@ -10,17 +10,17 @@ function AppViewModel() {
       return this.firstName() + ' ' + this.lastName();
     },
     write: (value) => {
-      alert('go here ' + value);
-      this.fullName = value;
+      this.firstName(value.firstName);
+      this.lastName(value.lastName);
     },
     owner: this,
   });
 
   onClick = () => {
-    var currentVal = this.fullName(); // Read the current value
-    const uppercaseFullName = currentVal.toUpperCase();
-    alert('debug');
-    this.fullName(uppercaseFullName);
+    var firstName = this.firstName().toUpperCase(); // Read the current value
+    var lastName = this.lastName().toUpperCase(); // Read the current value
+
+    this.fullName({ firstName, lastName });
   };
 }
 
